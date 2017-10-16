@@ -108,5 +108,4 @@ functions:
 #       Description: "Description for the output"
 #       Value: "Some output value"
 plugins:
- - serverless-plugin-typescript
  - serverless-offline
