@@ -9,7 +9,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "serverless-offline": "^3.16.0"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "serverless-offline": "^3.16.0",
+    "serverless-webpack": "^3.1.2",
+    "webpack": "^3.7.1"
   },
   "dependencies": {}
 }
