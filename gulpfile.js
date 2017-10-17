@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
+const jest = require('gulp-jest').default;
 
 gulp.task('lint', () =>
   // ESLint ignores files with "node_modules" paths.
@@ -20,3 +21,12 @@ gulp.task('lint', () =>
 gulp.task('default', ['lint'], () => {
   // This will only run if the lint task is successful...
 });
+
+gulp.task('test', () => gulp.src('.').pipe(jest({
+  config: {
+    preprocessorIgnorePatterns: [
+      '<rootDir>/dist/', '<rootDir>/node_modules/',
+    ],
+    automock: false,
+  },
+})));
