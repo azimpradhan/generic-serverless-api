@@ -1,4 +1,4 @@
-import {hello} from '../services/handler';
+import hello from '../services/handler';
 
 test('The default handler should work', () => {
   const event = {};
