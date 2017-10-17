@@ -58,7 +58,7 @@ package:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: services/handler.hello
     events:
      - http:
         path: hello
