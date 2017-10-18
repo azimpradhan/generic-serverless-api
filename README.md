@@ -55,3 +55,16 @@ To deploy to production:
 sls deploy --stage production
 ```
 
+##### 9. Run this command to lint your code.
+```
+gulp
+
+```
+
+##### 9. Run this command to test your code.
+```
+gulp test
+
+```
+
+
