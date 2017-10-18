@@ -21,7 +21,7 @@ provider:
   name: aws
   profile: iam
   runtime: nodejs6.10
-  stage: dev
+  stage: development
   region: us-west-2
 
 # you can overwrite defaults here
