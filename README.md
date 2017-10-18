@@ -34,8 +34,6 @@ npm install -g serverless
 serverless config credentials --provider aws --key <your-access-key-id> --secret <your-secret-access-key> --profile iam
 ```
 
-Now you should be able to see *serverless.yml* created in your directory.
-
 ##### 7. Install gulp.
 ```
 npm install --global gulp-cli
