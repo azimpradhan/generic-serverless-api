@@ -7,6 +7,7 @@ module.exports = {
       "jest/globals": true
     },
     "rules": {
-      "import/prefer-default-export": "off"
+      "import/prefer-default-export": "off",
+      "newline-before-return": "error",
     }
 };
