@@ -1,0 +1,5 @@
+{
+  "id": "/QueryStringParameters",
+  "type": "object",
+  "required": ["param"]
+}

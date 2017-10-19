@@ -1,0 +1,17 @@
+{
+  "id": "/HelloRequest",
+  "type": "object",
+  "properties": {
+    "headers": {
+      "type": "object",
+      "properties": {
+        "host": {"type": "string"},
+        "user-agent": {"type": "string"}
+      }
+    },
+    "path": {"type": "string"},
+    "requestContext": {"$ref": "/RequestContext"},
+    "queryStringParameters": {"$ref": "/QueryStringParameters"}
+  },
+  "required": ["headers", "requestContext", "queryStringParameters"]
+}

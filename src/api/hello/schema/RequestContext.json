@@ -1,0 +1,25 @@
+{
+  "id": "/RequestContext",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string"
+    },
+    "resourceId": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "userAgent": {
+          "type": "string"
+        },
+        "required": ["userAgent"]
+      }
+    }
+  },
+  "required": ["accountId", "resourceId", "stage"]
+}
