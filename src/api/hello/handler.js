@@ -1,16 +1,19 @@
-import { OkResponse, BadRequestResponse, InternalErrorResponse } from '../common/HttpResponse';
+import { OkResponse, BadRequestResponse, InternalErrorResponse, ForbiddenResponse } from '../common/HttpResponse';
 import { HttpInput } from '../common/HttpInput';
+import ForbiddenError from '../common/errors/ForbiddenError';
 
 const RequestContextSchema = require('./schema/RequestContext.json');
 const HelloInputSchema = require('./schema/HelloInput.json');
 const QueryStringParametersSchema = require('./schema/QueryStringParameters.json');
 
-const doAsyncTask = () => (
+const doAsyncTask = (event) => (
   new Promise((resolve) => {
-    if (Math.random() > 0.5) {
-      throw new Error('Randomly generated error');
-    } else {
+    if (event.queryStringParameters.error) {
+      throw new Error('Internal Service error');
+    } else if (event.queryStringParameters.password === 'test123') {
       setTimeout(resolve({ message: 'Go Serverless v1.0! Your function executed successfully!' }), 2000);
+    } else {
+      throw new ForbiddenError('Invalid password!');
     }
   })
 );
@@ -25,13 +28,18 @@ export const hello = (event, context, callback) => {
   );
 
   if (input.isValid()) {
-    doAsyncTask().then((data) => {
+    doAsyncTask(event).then((data) => {
       const response = new OkResponse({
         body: data,
       });
       callback(null, response);
     }).catch((error) => {
-      const response = new InternalErrorResponse(error);
+      let response;
+      if (error instanceof ForbiddenError) {
+        response = new ForbiddenResponse(error);
+      } else {
+        response = new InternalErrorResponse(error);
+      }
       callback(null, response);
     });
   } else {

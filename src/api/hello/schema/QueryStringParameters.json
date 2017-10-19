@@ -1,5 +1,5 @@
 {
   "id": "/QueryStringParameters",
   "type": "object",
-  "required": ["param"]
+  "required": ["password"]
 }

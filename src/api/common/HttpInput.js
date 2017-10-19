@@ -10,20 +10,20 @@ const toLowerCase = (obj) => {
 };
 
 export class HttpInput {
-  constructor(event, lowerLevelSchemas, validationSchema) {
+  constructor(event, referencedSchemas, validationSchema) {
     if (event && event.headers) {
       // eslint-disable-next-line no-param-reassign
       event.headers = toLowerCase(event.headers);
     }
     this.event = event;
-    this.lowerLevelSchemas = lowerLevelSchemas;
+    this.referencedSchemas = referencedSchemas;
     this.validationSchema = validationSchema;
   }
 
   validate() {
     const validator = new Validator();
-    const { validationSchema, lowerLevelSchemas } = this;
-    lowerLevelSchemas.forEach((lowerLevelSchema) => {
+    const { validationSchema, referencedSchemas } = this;
+    referencedSchemas.forEach((lowerLevelSchema) => {
       validator.addSchema(lowerLevelSchema);
     });
 
