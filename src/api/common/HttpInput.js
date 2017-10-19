@@ -50,6 +50,9 @@ export class HttpInput {
 
   getValidationErrorString() {
     const validationErrors = this.getValidationErrors();
+    if (validationErrors.length === 0) {
+      return '';
+    }
 
     return `Validation failed with the following errors: ${validationErrors.map(e => ['Property', `'${e.property}'`, 'failed validation with error', `'${e.error}'`].join(' ')).join(',')}`;
   }

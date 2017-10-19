@@ -6,7 +6,7 @@ const RequestContextSchema = require('./schema/RequestContext.json');
 const HelloInputSchema = require('./schema/HelloInput.json');
 const QueryStringParametersSchema = require('./schema/QueryStringParameters.json');
 
-const doAsyncTask = (event) => (
+const doAsyncTask = event => (
   new Promise((resolve) => {
     if (event.queryStringParameters.error) {
       throw new Error('Internal Service error');

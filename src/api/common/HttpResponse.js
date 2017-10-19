@@ -3,10 +3,10 @@ const defaultHeaders = {
   'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
 };
 
-const createExpectedResponse = (body, statusCode) => ({
+const createExpectedResponse = (response, statusCode) => ({
   statusCode,
   headers: defaultHeaders,
-  body: JSON.stringify(body),
+  body: JSON.stringify(response.body),
 });
 
 const createErrorResponse = (errorMessage, statusCode) => ({
